@@ -14,6 +14,7 @@
     outline:none;
     /*padding:10px;*/
     font-size:20px;
+    color:rgb(64,158,255);
 }
 .topic-item2{
     margin-left:10px;
@@ -64,7 +65,7 @@
 .posts-list{
     display:flex;
     flex-direction:column;
-    height:500px;
+    height:750px;
 }
 /*.posts-items-wrap{
     border:1px solid silver;
