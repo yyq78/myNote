@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <!-- import CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+  <link rel="stylesheet" href="css/index.css"/>
+  <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+<div id="topbar">
+    
+  <el-menu :default-active="activeIndex2" class="el-menu-demo" mode="horizontal" @select="handleSelect" background-color="#409EFF" text-color="#fff" active-text-color="#ffd04b">
+  <el-menu-item index="1">My笔记</el-menu-item> 
+</el-menu>
+</div>
+ <div id="menu">
+<el-container>
+  <!--<el-aside>-->
+    <el-menu default-active="2" class="el-menu--collapse" @open="handleOpen" @close="handleClose" :collapse="isCollapse">
+      <el-menu-item index="1">
+        <el-tooltip class="item" effect="dark" content="新建笔记" placement="right">
+        <i class="el-icon-edit"></i>
+        </el-tooltip>
+        <!--<span slot="title">新建笔记</span>
+         <el-tooltip class="item" effect="dark" content="Right Center 提示文字" placement="right">
+      <el-button type="primary" icon="el-icon-edit" circle></el-button>-->
+    </el-tooltip>
+      </el-menu-item>
+      <el-menu-item index="2">
+        <el-tooltip class="item" effect="dark" content="笔记" placement="right">
+        <i class="el-icon-document"></i>
+        </el-tooltip>
+        <!--<span slot="title">笔记</span>-->
+      </el-menu-item>
+      <el-menu-item index="3">
+        <el-tooltip class="item" effect="dark" content="回收站" placement="right">
+        <i class="el-icon-delete"></i>
+        </el-tooltip>
+        <!--<span slot="title">回收站</span>-->
+      </el-menu-item>
+    </el-menu>
+  <!--</el-aside>-->
+        <el-container>
+         
+          <el-aside>
+            <div class="posts">
+             <!--<el-header>-->
+               <div class="seachbar-layout">
+                <el-input  placeholder="搜索..." prefix-icon="el-icon-search" class="searchbar-input"></el-input>
+            <!--</el-header>-->
+               </div>
+                  <!--<ul class="posts-list">
+                    <li>122</li>
+                    <li>222</li>
+                    <li>222</li>
+                    <li>122</li>
+                    <li>122</li>
+                  </ul>-->
+                  <div class="posts-list">
+                    <div class="posts-items-wrap">
+                        <div class="posts-items">
+                          <div class="posts-title">标题</div>
+                         
+                          <span class="posts-time">3天前</span>
+                           <el-button icon="el-icon-delete" circle class="trash-btn"></el-button>
+                        </div>
+                        
+                    </div>
+                    <div class="posts-items-wrap">
+                      <div class="posts-items">
+                          <div class="posts-title">标题1</div>
+                        <el-button icon="el-icon-delete" circle class="trash-btn"></el-button>
+                          <span class="posts-time">3天前</span>
+                        </div>
+                    </div>
+                    <div class="posts-items-wrap">
+                      <div class="posts-items">
+                          <div class="posts-title">标题1</div>
+                        <el-button icon="el-icon-delete" circle class="trash-btn"></el-button>
+                          <span class="posts-time">3天前</span>
+                        </div>
+                    </div>
+                    <div class="posts-items-wrap">
+                      <div class="posts-items">
+                          <div class="posts-title">标题1</div>
+                        <el-button icon="el-icon-delete" circle class="trash-btn"></el-button>
+                          <span class="posts-time">3天前</span>
+                        </div>
+                    </div>
+                    <div class="posts-items-wrap">
+                      <div class="posts-items">
+                          <div class="posts-title">标题1</div>
+                          <el-button icon="el-icon-delete" circle class="trash-btn"></el-button>
+                          <span class="posts-time">3天前</span>
+                        </div>
+                    </div>
+                  </div>
+            </div>
+          </el-aside>
+            <el-main>
+                 <form>
+                   <!--<el-header class="topic">-->
+                   <div class="topic">
+                      <input type="text" id="topic" class="topic-item1" placeholder=" 无标题笔记"/>
+                      <el-button type="primary" plain class="topic-item2">保存</el-button>
+                   <!--</el-header>-->
+                   </div>
+                    <!--<el-button type="primary" plain class="topic-item2">保存</el-button>
+                      <el-button type="primary" plain class="topic-item3">取消</el-button>
+                       <el-button type="primary" plain class="topic-item2">保存</el-button>-->
+                    <textarea name="editor1" id="editor1" rows="10" cols="80">
+                       Start your writing...
+                    </textarea>
+                 </form>
+           </el-main>
+        </el-container>
+<!--</el-row>-->
+</div>
+<!--<form>
+<input type="file" id="file-block">
+<button type="submit" id="gf">gfd</button>
+<script>
+  $("#gf").click(function(event){
+    event.preventDefault();
+    if($("#file-block").val()!==""){
+      alert("!");
+      $("#file-block").attr('value',"");
+      alert($("#file-block").attr('value'));
+    }
+  });
+</script>
+</form>-->
+</body>
+  <!-- import Vue before Element -->
+  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  <!-- import JavaScript -->
+  <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+  <script>
+var Menu = {
+    methods: {
+      handleOpen(key, keyPath) {
+        console.log(key, keyPath);
+      },
+      handleClose(key, keyPath) {
+        console.log(key, keyPath);
+      }
+    }
+  }
+var Menu = Vue.extend(Menu)
+new Menu().$mount('#menu')
+
+var Topbar = {
+    data() {
+      return {
+        activeIndex: '1',
+        activeIndex2: '1'
+      };
+    },
+    methods: {
+      handleSelect(key, keyPath) {
+        console.log(key, keyPath);
+      }
+    }
+  }
+var Topbar = Vue.extend(Topbar)
+new Topbar().$mount('#topbar')
+  </script>
+  <script src="ckeditor/ckeditor.js"></script>
+  <script src="ckeditor/config.js"></script>
+<script>
+    // Replace the <textarea id="editor1"> with a CKEditor
+    // instance, using default configuration.
+    CKEDITOR.replace( 'editor1' );
+</script>
+ 
+</html>
